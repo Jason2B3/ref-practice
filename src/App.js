@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import "./App.css";
+import MyInput from "./components/MyInput";
 
 function App() {
   const firstNameRef = useRef();
@@ -17,7 +18,8 @@ function App() {
   };
   return (
     <>
-      <input type="text" ref={firstNameRef} />
+      <MyInput type="text" ref={firstNameRef} placeholder={'type first name here'} />
+
       <input type="text" ref={lastNameRef} />
       <button onClick={submitHandler}>Submit</button>
     </>
