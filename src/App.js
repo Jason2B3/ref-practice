@@ -1,24 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useRef } from "react";
+import "./App.css";
+import Counter from "./components/Counter";
 
 function App() {
+  //$ Step 1: Create a ref and pass it as an att for <Counter>
+  const ref = useRef();
+  //$ STEP 4: Use the forwarded function in a handler here, then use it for <button onClick>
+  const buttonHandler = () => ref.current.incrementFN();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Counter ref={ref} />       {/*Passed as a ref */}
+      <button onClick={buttonHandler}>Regular Button (+1)</button>
+    </>
   );
 }
 
